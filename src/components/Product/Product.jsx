@@ -7,7 +7,7 @@ const Product = (props) => {
 	// console.log(props);
 	const {img,name,seller,quantity,price,ratings} = props.productt;
 
-	const handleAddToCart = props.handleAddToCart
+	const handleAddToCart = props.handleAddToCartt
 
 
 	return (
