@@ -16,8 +16,38 @@ const Shop = () => {
 
 	useEffect(() => {
 		const storedCart = getShoppingCart();
-		console.log(storedCart);
-	},[])
+		// console.log(storedCart);
+
+		const savedCart = [];
+		// step 1: get id
+
+		for(const id in storedCart){
+			// console.log(id);
+
+			// step 2 get the product by using id
+			const addedProduct = products.find(product  => product.id === id)
+
+			if(addedProduct){
+				// step 3: get quantity of the product
+				const quantity = storedCart[id]
+				addedProduct.quantity = quantity
+
+				// step 4: add the addedProduct to the savedCart
+				savedCart.push(addedProduct)
+			}
+			console.log('added Product',addedProduct);
+
+			// step 3: get quantity of the product
+			// const quantity = storedCart[id];
+			// addedProduct.quantity = quantity;
+			// console.log(addedProduct);
+
+		}
+
+		// step 5: set the cart
+		setCart(savedCart);
+
+	},[products])
 
 	const handleAddToCarttt = (productt) => {
 		// console.log(product);
